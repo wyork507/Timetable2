@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23B81" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Course" representedClassName="Course" syncable="YES" codeGenerationType="class">
+        <attribute name="courseInfo" optional="YES"/>
+        <attribute name="courseLoc" optional="YES"/>
+        <attribute name="courseTime"/>
+        <relationship name="courseTimes" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CourseTime"/>
+    </entity>
+    <entity name="CourseInfo" representedClassName="CourseInfo" syncable="YES" codeGenerationType="class">
+        <attribute name="code" attributeType="String" derived="YES" derivationExpression=""/>
+        <attribute name="credit" attributeType="Integer 16" minValueString="0" maxValueString="32" defaultValueString="2" usesScalarValueType="YES"/>
+        <attribute name="interSchool" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
+    <entity name="CourseLocation" representedClassName="CourseLocation" syncable="YES" codeGenerationType="class">
+        <attribute name="branch" optional="YES" attributeType="String"/>
+        <attribute name="classroom" attributeType="String" derived="YES" derivationExpression=""/>
+        <attribute name="school" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CourseTime" representedClassName="CourseTime" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="Integer 16" derived="YES" derivationExpression="id" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="theDay" attributeType="Integer 16" minValueString="1" maxValueString="7" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="thePeriod" attributeType="Integer 16" minValueString="1" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+</model>
