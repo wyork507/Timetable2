@@ -47,3 +47,12 @@ class UserPreference {
         }
     }
 }
+
+enum DefaultSchools: String, Identifiable {
+    case NTNU = "National Taiwan Normal University"
+    case NTU = "National Taiwan University"
+    case NTUST = "National Taiwan University of Science and Technology"
+    
+    var id: Self { self }
+    var abbr: String { String(describing: self) }
+}

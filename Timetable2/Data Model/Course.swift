@@ -20,50 +20,31 @@ private struct CourseInfo {
 @Model
 class Course: Identifiable{
     var createTime = Date()
+    var timetable: Timetables
+    
     var name: String
     var abbr: String
+    var professor: String
+    var classroom: String
     
+    var dayNum: Int // 0-6
+    var periods: [Period]
     
-    var periods: [Int]?
-    var professor: String?
-    var school: String
-    var timetable: String?
-    var courseDetails: Details
+    @Relationship(deleteRule: .nullify)
+    var school: School
+    @Relationship(deleteRule: .cascade)
+    var assignment: [Assignment]
     
-    init(createTime: Date, name: String, abbr: String, school: String, timetable: String? = nil, courseDetails: Details) {
-        self.createTime = createTime
+    init(timetable: Timetables, name: String, abbr: String, professor: String, classroom: String, dayNum: Int, periods: [Period], school: School) {
+        self.createTime = Date()
+        self.timetable = timetable
         self.name = name
         self.abbr = abbr
+        self.professor = professor
+        self.classroom = classroom
+        self.dayNum = dayNum
+        self.periods = periods
         self.school = school
-        self.timetable = timetable
-        self.courseDetails = courseDetails
+        self.assignment = []
     }
-}
-
-
-extension Course{
-    struct Details: Codable {
-        var courseInfo: CourseInformation
-        var courseTime: CourseTime
-        var courseLoc: CourseLocation
-    }
-}
-
-struct CourseInformation: Codable {
-    var semester: Int
-    var code: String
-    var credit: Float
-    var name: String
-    var isInterSchool: Bool
-}
-
-struct CourseTime: Codable, Hashable {
-    var day: Int
-    var period: [Int]
-}
-
-struct CourseLocation: Codable {
-    var school: String?
-    var branch: String?
-    var classroom: String
 }
