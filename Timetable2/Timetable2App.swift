@@ -16,7 +16,7 @@ struct Timetable2App: App {
     //
     //init() {
     //    do {
-    //        let schema = Schema([Timetables.self, Course.self])
+    //        let schema = Schema([Timetables.self, Course.self, School.self, Assignment.self])
     //        let config = ModelConfiguration(url: storeURL)
     //        container = try ModelContainer(for: schema, configurations: config)
     //    } catch {

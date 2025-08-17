@@ -9,13 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct GenralSettingsView: View {
-    @Query(sort: [SortDescriptor(\School.name)], animation: .snappy)
-    private var schools: [School]
     @Query(sort: [SortDescriptor(\Timetables.name)], animation: .snappy)
     private var timtables: [Timetables]
     
-    @State var settings = UserPreference.General()
-    @State var enabledNotification = UserPreference.Notification().isEnabled
+    @State private var settings = UserPreference.General()
+    @State private var enabledNotification = UserPreference.Notification().isEnabled
     
     var body: some View {
         NavigationStack {
@@ -24,7 +22,7 @@ struct GenralSettingsView: View {
                     Toggle("Dark Mode", isOn: $settings.isEnableDarkMode)
                     NavigationLink {
                         UnderConstruction()
-                        //SchoolItemView($schools)
+                        //LanguageSettingView($schools)
                     } label: {
                         LabeledContent {
                             Text(Locale.current.localizedString(
@@ -39,36 +37,27 @@ struct GenralSettingsView: View {
                 })
                 Section("Manage") {
                     NavigationLink {
-                        UnderConstruction()
-                        //SchoolItemView($schools)
+                        SchoolListView()
                     } label: {
                         LabeledContent {
-                            VStack {
-                                Text("Total")
-                                    .font(.caption)
-                                Text("\(schools.count.description)")
-                            }.frame(height: 38)
+                            EmptyView()
                         } label: {
                             Text("Schools")
                             Text("Tap to edit school list, and manage its schedule.")
                                 .font(.caption2)
-                        }
+                        }.frame(height: 38)
                     }
                     NavigationLink {
                         UnderConstruction()
-                        //TimetableItemView($timetables)
+                        //TimetableListView($timetables)
                     } label: {
                         LabeledContent {
-                            VStack {
-                                Text("Total")
-                                    .font(.caption)
-                                Text("\(timtables.count.description)")
-                            }.frame(height: 38)
+                            EmptyView()
                         } label: {
                             Text("Timetables")
                             Text("Active: \(settings.activedTimetable ?? "Not set yet")")
                                 .font(.caption2)
-                        }
+                        }.frame(height: 38)
                     }
                 }
                 Section("Display") {
@@ -84,8 +73,7 @@ struct GenralSettingsView: View {
                         }.frame(height: 38)
                     }
                     NavigationLink {
-                        UnderConstruction()
-                        //DisplayInfoSettingView()
+                        DisplayInfoSettingView()
                     } label: {
                         LabeledContent {
                             EmptyView()

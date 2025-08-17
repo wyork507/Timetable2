@@ -26,6 +26,7 @@ class Course: Identifiable{
     var abbr: String
     var professor: String
     var classroom: String
+    var campus: String?
     
     var dayNum: Int // 0-6
     var periods: [Period]
@@ -35,7 +36,7 @@ class Course: Identifiable{
     @Relationship(deleteRule: .cascade)
     var assignment: [Assignment]
     
-    init(timetable: Timetables, name: String, abbr: String, professor: String, classroom: String, dayNum: Int, periods: [Period], school: School) {
+    init(timetable: Timetables, name: String, abbr: String, professor: String, classroom: String, dayNum: Int, periods: [Period], school: School, campus: String? = nil) {
         self.createTime = Date()
         self.timetable = timetable
         self.name = name
@@ -46,5 +47,12 @@ class Course: Identifiable{
         self.periods = periods
         self.school = school
         self.assignment = []
+        
+        if let campus = campus,
+           school.campuses.contains(campus){
+            self.campus = campus
+        } else {
+            fatalError("Invalid campus for \(school.name)")
+        }
     }
 }

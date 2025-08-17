@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		981D6CF62E527B7D007E372B /* DisplayInfoSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981D6CF52E527B7D007E372B /* DisplayInfoSettingView.swift */; };
+		981D6D1B2E529040007E372B /* SchoolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981D6D1A2E529040007E372B /* SchoolListView.swift */; };
 		9842B8E82E51BBCD000F16FF /* GenralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842B8E72E51BBCD000F16FF /* GenralSettingsView.swift */; };
 		9842B8EA2E51D57B000F16FF /* AboutThisAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842B8E92E51D57B000F16FF /* AboutThisAppView.swift */; };
 		9842B8EC2E51DB91000F16FF /* DisplayViewSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842B8EB2E51DB91000F16FF /* DisplayViewSettingView.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		981D6CF52E527B7D007E372B /* DisplayInfoSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayInfoSettingView.swift; sourceTree = "<group>"; };
+		981D6D1A2E529040007E372B /* SchoolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListView.swift; sourceTree = "<group>"; };
 		9842B8E72E51BBCD000F16FF /* GenralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenralSettingsView.swift; sourceTree = "<group>"; };
 		9842B8E92E51D57B000F16FF /* AboutThisAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutThisAppView.swift; sourceTree = "<group>"; };
 		9842B8EB2E51DB91000F16FF /* DisplayViewSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewSettingView.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				9842B8E72E51BBCD000F16FF /* GenralSettingsView.swift */,
 				9842B8E92E51D57B000F16FF /* AboutThisAppView.swift */,
 				9842B8EB2E51DB91000F16FF /* DisplayViewSettingView.swift */,
+				981D6CF52E527B7D007E372B /* DisplayInfoSettingView.swift */,
+				981D6D1A2E529040007E372B /* SchoolListView.swift */,
 			);
 			path = SettingView;
 			sourceTree = "<group>";
@@ -262,11 +268,13 @@
 				989C74902B5502CB00C91B32 /* TimetableSetting.swift in Sources */,
 				98BAF7EF2B667EDD00DD2046 /* CourseListView.swift in Sources */,
 				986302522B516CBE00D71F41 /* Slider.swift in Sources */,
+				981D6CF62E527B7D007E372B /* DisplayInfoSettingView.swift in Sources */,
 				9842B8EA2E51D57B000F16FF /* AboutThisAppView.swift in Sources */,
 				9891A61D2B5131D80033C19A /* CourseView.swift in Sources */,
 				9856C4932B68B7D70071ED67 /* Timetables.swift in Sources */,
 				9861C6742B54CC540071A719 /* SettingRootView.swift in Sources */,
 				989C748E2B5501BF00C91B32 /* UnderConstruction.swift in Sources */,
+				981D6D1B2E529040007E372B /* SchoolListView.swift in Sources */,
 				989C74942B55223400C91B32 /* NotificationSetting.swift in Sources */,
 				98731BD32B5A2AFF001EBC55 /* UserPreference.swift in Sources */,
 				9891A6152B50F7440033C19A /* Course.swift in Sources */,
