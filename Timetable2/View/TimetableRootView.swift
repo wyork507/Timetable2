@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimetableRootView: View {
     @State private var selectedTab: Subtab = .Day
-    @State private var viewingTimetable: String = UserDefaults.standard.string(forKey: UserPreference.Timetable.active.path) ?? "N/A"
+    @State private var viewingTimetable: String = UserDefaults.standard.string(forKey: UserPreferenceOld.Timetable.active.path) ?? "N/A"
     
     var body: some View {
         VStack {

@@ -12,11 +12,11 @@ private let schools: [String:String] = ["National Taiwan Normal University" : "N
 private let periods: [String] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "B", "C", "D", "E", "F", "G", "H", "I"]
 
 struct ConditionSetting: View {
-    @AppStorage(UserPreference.Condition.totalCourse.path) var totalCourse: Int = 15
-    @AppStorage(UserPreference.Condition.courseLength.path) var courseLength: Int = 50
-    @AppStorage(UserPreference.Condition.intervals.path) var intervals: Int = 10
-    @AppStorage(UserPreference.Condition.isNameForPeriods.path) var isNameForPeriods: Bool = true
-    @AppStorage(UserPreference.Condition.isSchool.path) var isSchool: Bool = true
+    @AppStorage(UserPreferenceOld.Condition.totalCourse.path) var totalCourse: Int = 15
+    @AppStorage(UserPreferenceOld.Condition.courseLength.path) var courseLength: Int = 50
+    @AppStorage(UserPreferenceOld.Condition.intervals.path) var intervals: Int = 10
+    @AppStorage(UserPreferenceOld.Condition.isNameForPeriods.path) var isNameForPeriods: Bool = true
+    @AppStorage(UserPreferenceOld.Condition.isSchool.path) var isSchool: Bool = true
     
     @State private var isEditLength: Bool = false
     @State private var viewingNameForPeriods: Bool = false
@@ -153,7 +153,7 @@ fileprivate struct PeriodNameEditor: View {
     @Binding private var total: Int
     @State private var editIndex: Int?
     @State private var editText: String = ""
-    @State private var stringSeries: [String] = UserDefaults.standard.array(forKey: UserPreference.Condition.nameForPeriods.path) as? [String] ?? periods
+    @State private var stringSeries: [String] = UserDefaults.standard.array(forKey: UserPreferenceOld.Condition.nameForPeriods.path) as? [String] ?? periods
     private let numberWidth: CGFloat = 40.0
     private let buttonWidth: CGFloat = 60.0
     
@@ -222,8 +222,8 @@ fileprivate struct PeriodNameEditor: View {
         if let index = editIndex, !editText.isEmpty {
             stringSeries[index] = editText
             editIndex = nil
-            UserDefaults.standard.set(stringSeries, forKey: UserPreference.Condition.nameForPeriods.path)
-            stringSeries = (UserDefaults.standard.array(forKey: UserPreference.Condition.nameForPeriods.path) as? [String])!
+            UserDefaults.standard.set(stringSeries, forKey: UserPreferenceOld.Condition.nameForPeriods.path)
+            stringSeries = (UserDefaults.standard.array(forKey: UserPreferenceOld.Condition.nameForPeriods.path) as? [String])!
         }
     }
 }
@@ -232,7 +232,7 @@ fileprivate struct SchoolEditor: View {
     @Binding private var isEditable: Bool
     @State private var editIndex: Int?
     @State private var editText: String = ""
-    @State private var schoolList: [String:String] = UserDefaults.standard.dictionary(forKey: UserPreference.Condition.schools.path) as? [String:String] ?? schools
+    @State private var schoolList: [String:String] = UserDefaults.standard.dictionary(forKey: UserPreferenceOld.Condition.schools.path) as? [String:String] ?? schools
     
     @State private var newSchool: String = ""
     @State private var newSchoolAbbr: String = ""
@@ -318,8 +318,8 @@ fileprivate struct SchoolEditor: View {
     }
     
     func syncChange() {
-        UserDefaults.standard.set(schoolList, forKey: UserPreference.Condition.schools.path)
-        schoolList = (UserDefaults.standard.dictionary(forKey: UserPreference.Condition.schools.path) as? [String:String])!
+        UserDefaults.standard.set(schoolList, forKey: UserPreferenceOld.Condition.schools.path)
+        schoolList = (UserDefaults.standard.dictionary(forKey: UserPreferenceOld.Condition.schools.path) as? [String:String])!
     }
 }
 

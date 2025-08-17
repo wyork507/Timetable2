@@ -3,4 +3,36 @@
    uuid = "2A048FF9-DFD2-41B8-8B25-1B0E4CFBD0EF"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F6E2D76D-11AC-45AE-A5B2-4ADDACE79ABF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../var/folders/k_/cnnq1v695hz276075mfq9rbw0000gn/T/swift-generated-sources/@__swiftmacro_10Timetable216TimetableManager33_69F6A0274466736726EB5502A1DD1DA1LLV9timetable5QueryfMp_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "633B8C15-54E1-4CE2-A6C5-BE24D21255F5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../var/folders/k_/cnnq1v695hz276075mfq9rbw0000gn/T/swift-generated-sources/@__swiftmacro_10Timetable214SettingManagerC16isEnableDarkMode18ObservationTrackedfMp_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

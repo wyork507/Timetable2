@@ -28,6 +28,6 @@ struct Timetable2App: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Timetable.self, Course.self])
+        .modelContainer(for: [Timetables.self, Course.self, School.self, Assignment.self])
     }
 }

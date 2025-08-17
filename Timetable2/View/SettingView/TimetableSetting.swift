@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-fileprivate let loc = UserPreference.Timetable.self
+fileprivate let loc = UserPreferenceOld.Timetable.self
 
 
 struct TimetableSetting: View {
@@ -102,7 +102,7 @@ struct TimetableSetting: View {
 }
 fileprivate struct TimetableManager: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var timetable: [Timetable]
+    @Query private var timetable: [Timetables]
     
     @State private var isShowingAddItemSheet = false
     @State private var isShowingDeleteAlert = false
@@ -175,7 +175,7 @@ fileprivate struct AddTimetableSheet: View {
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button("Save") {
-                        let timetable = Timetable(name: name, start: startDate, end: endDate)
+                        let timetable = Timetables(name: name, start: startDate, end: endDate)
                         context.insert(timetable)
                     }
                 }
@@ -185,7 +185,7 @@ fileprivate struct AddTimetableSheet: View {
 }
 
 fileprivate struct TimetableEditor: View {
-    @Bindable var timetable: Timetable
+    @Bindable var timetable: Timetables
     
     var body: some View {
         NavigationStack {

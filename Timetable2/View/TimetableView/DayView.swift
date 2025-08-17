@@ -54,9 +54,9 @@ private struct LessonRow: View {
     private let lessonNumber: String
     private let lessonTime: String
     private let courseInfo: CourseInfo
-    @State private var isViewTime: Bool    = UserDefaults.standard.bool(forKey: UserPreference.Timetable.DispInfo.isTime.path)
-    @State private var isSchool: Bool      = UserDefaults.standard.bool(forKey: UserPreference.Timetable.DispInfo.isSchool.path)
-    @State private var isProfessor: Bool   = UserDefaults.standard.bool(forKey: UserPreference.Timetable.DispInfo.isProfessor.path)
+    @State private var isViewTime: Bool    = UserDefaults.standard.bool(forKey: UserPreferenceOld.Timetable.DispInfo.isTime.path)
+    @State private var isSchool: Bool      = UserDefaults.standard.bool(forKey: UserPreferenceOld.Timetable.DispInfo.isSchool.path)
+    @State private var isProfessor: Bool   = UserDefaults.standard.bool(forKey: UserPreferenceOld.Timetable.DispInfo.isProfessor.path)
     
     init(lessonNumber: String = "3", lessonTime: String = "10:20 - 11:10", courseInfo: CourseInfo = CourseInfo()) {
         self.lessonNumber = lessonNumber
@@ -190,9 +190,9 @@ private struct LessonRow: View {
         LessonRow().reload()
     }
     fileprivate func reload() {
-        isViewTime = UserDefaults.standard.bool(forKey: UserPreference.Timetable.DispInfo.isTime.path)
-        isSchool = UserDefaults.standard.bool(forKey: UserPreference.Timetable.DispInfo.isSchool.path)
-        isProfessor = UserDefaults.standard.bool(forKey: UserPreference.Timetable.DispInfo.isProfessor.path)
+        isViewTime = UserDefaults.standard.bool(forKey: UserPreferenceOld.Timetable.DispInfo.isTime.path)
+        isSchool = UserDefaults.standard.bool(forKey: UserPreferenceOld.Timetable.DispInfo.isSchool.path)
+        isProfessor = UserDefaults.standard.bool(forKey: UserPreferenceOld.Timetable.DispInfo.isProfessor.path)
     }
 }
 

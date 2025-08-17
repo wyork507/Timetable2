@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-enum AssignmentType: String {
+enum AssignmentType: String, Codable {
     case assignment
     case quiz
     case exam
@@ -33,6 +33,7 @@ class Assignment {
         self.course = course
         self.type = type
         self.dueDate = dueDate
+        self.submit = submit
         self.isDone = false
         self.note = note
     }

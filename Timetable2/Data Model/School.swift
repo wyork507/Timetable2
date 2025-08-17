@@ -44,10 +44,6 @@ struct Period: Codable {
 
 // MARK: Read & Process Default
 fileprivate func parseSchdules4School(school: DefaultSchools) -> [Period] {
-    guard let path = Bundle.main.path(forResource: "DefaultSchools", ofType: "plist") else {
-        fatalError(#function + ": Cannot find DefaultSchools.plist")
-    }
-    
     struct PlistPeriodsData: Codable {
         let Name: String
         let Start: String

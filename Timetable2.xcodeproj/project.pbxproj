@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9842B8E82E51BBCD000F16FF /* GenralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842B8E72E51BBCD000F16FF /* GenralSettingsView.swift */; };
+		9842B8EA2E51D57B000F16FF /* AboutThisAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842B8E92E51D57B000F16FF /* AboutThisAppView.swift */; };
+		9842B8EC2E51DB91000F16FF /* DisplayViewSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842B8EB2E51DB91000F16FF /* DisplayViewSettingView.swift */; };
 		984396462E4EF10D000EA314 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984396452E4EF10D000EA314 /* Assignment.swift */; };
 		9843966D2E4EF9A6000EA314 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843966C2E4EF9A6000EA314 /* School.swift */; };
 		9843966F2E4EFCC5000EA314 /* DefaultSchools.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9843966E2E4EFCC5000EA314 /* DefaultSchools.plist */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9842B8E72E51BBCD000F16FF /* GenralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenralSettingsView.swift; sourceTree = "<group>"; };
+		9842B8E92E51D57B000F16FF /* AboutThisAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutThisAppView.swift; sourceTree = "<group>"; };
+		9842B8EB2E51DB91000F16FF /* DisplayViewSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewSettingView.swift; sourceTree = "<group>"; };
 		984396452E4EF10D000EA314 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		9843966C2E4EF9A6000EA314 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		9843966E2E4EFCC5000EA314 /* DefaultSchools.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultSchools.plist; sourceTree = "<group>"; };
@@ -77,6 +83,9 @@
 				989C748F2B5502CB00C91B32 /* TimetableSetting.swift */,
 				989C74912B5512BA00C91B32 /* CourseSetting.swift */,
 				989C74932B55223400C91B32 /* NotificationSetting.swift */,
+				9842B8E72E51BBCD000F16FF /* GenralSettingsView.swift */,
+				9842B8E92E51D57B000F16FF /* AboutThisAppView.swift */,
+				9842B8EB2E51DB91000F16FF /* DisplayViewSettingView.swift */,
 			);
 			path = SettingView;
 			sourceTree = "<group>";
@@ -253,6 +262,7 @@
 				989C74902B5502CB00C91B32 /* TimetableSetting.swift in Sources */,
 				98BAF7EF2B667EDD00DD2046 /* CourseListView.swift in Sources */,
 				986302522B516CBE00D71F41 /* Slider.swift in Sources */,
+				9842B8EA2E51D57B000F16FF /* AboutThisAppView.swift in Sources */,
 				9891A61D2B5131D80033C19A /* CourseView.swift in Sources */,
 				9856C4932B68B7D70071ED67 /* Timetables.swift in Sources */,
 				9861C6742B54CC540071A719 /* SettingRootView.swift in Sources */,
@@ -261,8 +271,10 @@
 				98731BD32B5A2AFF001EBC55 /* UserPreference.swift in Sources */,
 				9891A6152B50F7440033C19A /* Course.swift in Sources */,
 				989C74922B5512BA00C91B32 /* CourseSetting.swift in Sources */,
+				9842B8EC2E51DB91000F16FF /* DisplayViewSettingView.swift in Sources */,
 				9891A5FA2B50DE330033C19A /* Timetable2App.swift in Sources */,
 				98FB45B12B60DCAD00BAAE8E /* DayView.swift in Sources */,
+				9842B8E82E51BBCD000F16FF /* GenralSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
