@@ -24,19 +24,17 @@ fileprivate let previewData = Course(
 struct DisplayInfoSettingView: View {
     @State private var infoSetting = UserPreference.Display.Infomation()
     
-    private var showNameBinding: Binding<Int> {
-        Binding<Int>(
-            get: { self.infoSetting.showFullName ? 1 : 0 },
-            set: { self.infoSetting.showFullName = ($0 == 1)}
-        )
-    }
-    
     var body: some View {
         NavigationStack {
             Form {
-                Picker("Display Course as", selection: showNameBinding) {
-                    Text("Abbreviation").tag(0)
-                    Text("Full Name").tag(1)
+                LabeledContent {
+                    Picker("Display Course as", selection: $infoSetting.showFullName) {
+                        Text("Abbreviation").tag(false)
+                        Text("Full Name").tag(true)
+                    }.pickerStyle(.palette)
+                } label: {
+                    Text("Name as")
+                        .frame(minWidth: 100, alignment: .leading)
                 }
                 Toggle("Professor", isOn: $infoSetting.showProfessor)
                 Toggle("Time",isOn: $infoSetting.showTime)

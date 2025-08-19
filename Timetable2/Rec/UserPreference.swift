@@ -32,16 +32,10 @@ struct UserPreference {
             ud.set(activedTimetable, forKey: "activedTimetable")
         }}
         
-        ///
-        var studySchool: School { didSet {
-            ud.set(studySchool, forKey: "studySchool")
-        }}
-        
         init() {
             self.isEnableDarkMode = ud.bool(forKey: "isEnableDarkMode")
             self.language = ud.object(forKey: "language") as? Locale.LanguageCode ?? .english
             self.activedTimetable = ud.string(forKey: "activedTimetable")
-            self.studySchool = ud.object(forKey: "studySchool") as? School ?? .init(.NTNU)
         }
     }
     

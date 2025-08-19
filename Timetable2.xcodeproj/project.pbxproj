@@ -20,6 +20,9 @@
 		9861C6742B54CC540071A719 /* SettingRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9861C6732B54CC540071A719 /* SettingRootView.swift */; };
 		986302502B51602000D71F41 /* ConditionSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863024F2B51602000D71F41 /* ConditionSetting.swift */; };
 		986302522B516CBE00D71F41 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986302512B516CBE00D71F41 /* Slider.swift */; };
+		986806632E54433700611B8B /* SchoolDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986806622E54433700611B8B /* SchoolDetailView.swift */; };
+		986806882E54953C00611B8B /* TimetableListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986806872E54953C00611B8B /* TimetableListView.swift */; };
+		9868068A2E54A1C900611B8B /* TimetableDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986806892E54A1C900611B8B /* TimetableDetailView.swift */; };
 		98731BD32B5A2AFF001EBC55 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98731BD22B5A2AFF001EBC55 /* UserPreference.swift */; };
 		9891A5FA2B50DE330033C19A /* Timetable2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9891A5F92B50DE330033C19A /* Timetable2App.swift */; };
 		9891A5FC2B50DE330033C19A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9891A5FB2B50DE330033C19A /* ContentView.swift */; };
@@ -51,6 +54,9 @@
 		9861C6732B54CC540071A719 /* SettingRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRootView.swift; sourceTree = "<group>"; };
 		9863024F2B51602000D71F41 /* ConditionSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionSetting.swift; sourceTree = "<group>"; };
 		986302512B516CBE00D71F41 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		986806622E54433700611B8B /* SchoolDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailView.swift; sourceTree = "<group>"; };
+		986806872E54953C00611B8B /* TimetableListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableListView.swift; sourceTree = "<group>"; };
+		986806892E54A1C900611B8B /* TimetableDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableDetailView.swift; sourceTree = "<group>"; };
 		98731BD22B5A2AFF001EBC55 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
 		9891A5F62B50DE330033C19A /* Timetable2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timetable2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9891A5F92B50DE330033C19A /* Timetable2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable2App.swift; sourceTree = "<group>"; };
@@ -92,6 +98,9 @@
 				9842B8EB2E51DB91000F16FF /* DisplayViewSettingView.swift */,
 				981D6CF52E527B7D007E372B /* DisplayInfoSettingView.swift */,
 				981D6D1A2E529040007E372B /* SchoolListView.swift */,
+				986806622E54433700611B8B /* SchoolDetailView.swift */,
+				986806872E54953C00611B8B /* TimetableListView.swift */,
+				986806892E54A1C900611B8B /* TimetableDetailView.swift */,
 			);
 			path = SettingView;
 			sourceTree = "<group>";
@@ -263,6 +272,7 @@
 				986302502B51602000D71F41 /* ConditionSetting.swift in Sources */,
 				9843966D2E4EF9A6000EA314 /* School.swift in Sources */,
 				9856C4912B6754A30071ED67 /* TimeModule.swift in Sources */,
+				986806882E54953C00611B8B /* TimetableListView.swift in Sources */,
 				98FB45AE2B60B73C00BAAE8E /* TimetableRootView.swift in Sources */,
 				98C44CAF2B8CA92A00A14F12 /* DashboardView.swift in Sources */,
 				989C74902B5502CB00C91B32 /* TimetableSetting.swift in Sources */,
@@ -271,12 +281,14 @@
 				981D6CF62E527B7D007E372B /* DisplayInfoSettingView.swift in Sources */,
 				9842B8EA2E51D57B000F16FF /* AboutThisAppView.swift in Sources */,
 				9891A61D2B5131D80033C19A /* CourseView.swift in Sources */,
+				986806632E54433700611B8B /* SchoolDetailView.swift in Sources */,
 				9856C4932B68B7D70071ED67 /* Timetables.swift in Sources */,
 				9861C6742B54CC540071A719 /* SettingRootView.swift in Sources */,
 				989C748E2B5501BF00C91B32 /* UnderConstruction.swift in Sources */,
 				981D6D1B2E529040007E372B /* SchoolListView.swift in Sources */,
 				989C74942B55223400C91B32 /* NotificationSetting.swift in Sources */,
 				98731BD32B5A2AFF001EBC55 /* UserPreference.swift in Sources */,
+				9868068A2E54A1C900611B8B /* TimetableDetailView.swift in Sources */,
 				9891A6152B50F7440033C19A /* Course.swift in Sources */,
 				989C74922B5512BA00C91B32 /* CourseSetting.swift in Sources */,
 				9842B8EC2E51DB91000F16FF /* DisplayViewSettingView.swift in Sources */,

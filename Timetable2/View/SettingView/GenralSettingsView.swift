@@ -8,10 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct GenralSettingsView: View {
-    @Query(sort: [SortDescriptor(\Timetables.name)], animation: .snappy)
-    private var timtables: [Timetables]
-    
+struct GenralSettingsView: View {    
     @State private var settings = UserPreference.General()
     @State private var enabledNotification = UserPreference.Notification().isEnabled
     
@@ -48,8 +45,7 @@ struct GenralSettingsView: View {
                         }.frame(height: 38)
                     }
                     NavigationLink {
-                        UnderConstruction()
-                        //TimetableListView($timetables)
+                        TimetableListView()
                     } label: {
                         LabeledContent {
                             EmptyView()
@@ -130,4 +126,5 @@ struct GenralSettingsView: View {
 
 #Preview {
     GenralSettingsView()
+        .modelContainer(for: School.self, inMemory: true)
 }
