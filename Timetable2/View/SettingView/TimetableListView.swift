@@ -13,9 +13,12 @@ struct TimetableListView: View {
     @Query(sort: [SortDescriptor(\Timetables.name)], animation: .snappy)
     private var timtables: [Timetables]
     
-    @State private var isAdding = false
     @State private var newName = ""
+    @State private var newStart = Date()
+    @State private var newEnd = Date()
     @State private var tempTimetable = Timetables()
+    
+    @State private var isAdding = false
     
     var body: some View {
         NavigationStack {
@@ -33,22 +36,17 @@ struct TimetableListView: View {
                             } label: {
                                 LabeledContent {
                                     VStack {
-                                        HStack {
-                                            Text("from")
-                                                .font(.callout)
-                                            Text(timetable.start.formatted(date: .numeric, time: .omitted))
-                                                .font(.callout)
-                                        }
-                                        HStack {
-                                            Text("to")
-                                                .font(.callout)
-                                            Text(timetable.end.formatted(date: .numeric, time: .omitted))
-                                                .font(.callout)
-                                        }
+                                        Text(timetable.start.formatted(date: .numeric, time: .omitted))
+                                            .font(.callout)
+                                        Text(timetable.end.formatted(date: .numeric, time: .omitted))
+                                            .font(.callout)
                                     }
                                 } label: {
-                                    Text(timetable.name)
-                                    Text("Created at \(timetable.createDate.formatted(date: .numeric, time: .omitted)), contains \(timetable.holidays.count.description) holiday(s).")
+                                    VStack {
+                                        Text(timetable.name)
+                                        Text("Created at \(timetable.createDate.formatted(date: .long, time: .omitted)), contains \(timetable.holidays.count.description) holiday(s).")
+                                            .font(.caption2)
+                                    }
                                 }
                             }
                             .frame(height: 38)
@@ -73,27 +71,26 @@ struct TimetableListView: View {
                     Section("Add Timetable") {
                         TextField("Name", text: $newName, prompt: Text("Enter a name"))
                             .frame(width: .infinity)
+                        DatePicker("Start", selection: $newStart, displayedComponents: .date)
+                        DatePicker("End", selection: $newEnd, displayedComponents: .date)
                         NavigationLink {
                             TimetableDetailView(timetable: $tempTimetable)
-                                .toolbar {
-                                    ToolbarItem(placement: .confirmationAction) {
-                                        Button("Save") {
-                                            saveContext(tempTimetable)
-                                        }.disabled(tempTimetable.isVoid)
-                                    }
-                                }
                         } label: {
                             Button("Continue") {
-                                tempTimetable = School(name: newName, schedule: [])
+                                tempTimetable = Timetables(
+                                    newName,
+                                    start: newStart,
+                                    end: newEnd
+                                )
                             }
-                        }.disabled(newName.isEmpty)
+                        }.disabled(newName.isEmpty || newStart < newEnd)
                     }
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {
-                                isAdding = false
-                                newName = ""
-                            }
+                }
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") {
+                            isAdding = false
+                            newName = ""
                         }
                     }
                 }
@@ -105,6 +102,8 @@ struct TimetableListView: View {
         context.insert(timetable)
         try? context.save()
         newName = ""
+        newEnd = Date()
+        newStart = Date()
         isAdding = false
         tempTimetable = .init()
     }

@@ -117,7 +117,7 @@ struct SchoolDetailView: View {
             ToolbarItem(placement: .primaryAction) {
                 Button("Save") {
                     try? context.save()
-                }
+                }.disabled(school.isVoid)
             }
         }
     }

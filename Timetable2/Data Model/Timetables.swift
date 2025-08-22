@@ -14,7 +14,7 @@ class Timetables {
     var name: String
     var start: Date
     var end: Date
-    var holidays: [holiday]
+    var holidays: [Holiday]
     
     @Relationship(deleteRule: .deny)
     var courses: [Course]
@@ -42,7 +42,7 @@ class Timetables {
     }
 }
 
-struct holiday: Codable {
+struct Holiday: Codable {
     var name: String
     var start: Date
     var end: Date

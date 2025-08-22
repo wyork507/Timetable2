@@ -8,7 +8,9 @@
 import SwiftUI
 import SwiftData
 
-struct GenralSettingsView: View {    
+struct GenralSettingsView: View {
+    @Environment(\.modelContext) private var context
+    
     @State private var settings = UserPreference.General()
     @State private var enabledNotification = UserPreference.Notification().isEnabled
     
@@ -126,5 +128,5 @@ struct GenralSettingsView: View {
 
 #Preview {
     GenralSettingsView()
-        .modelContainer(for: School.self, inMemory: true)
+        .modelContainer(for: [School.self, Timetables.self], inMemory: true)
 }

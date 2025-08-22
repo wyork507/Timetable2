@@ -175,7 +175,7 @@ fileprivate struct AddTimetableSheet: View {
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button("Save") {
-                        let timetable = Timetables(name: name, start: startDate, end: endDate)
+                        let timetable = Timetables(name, start: startDate, end: endDate)
                         context.insert(timetable)
                     }
                 }

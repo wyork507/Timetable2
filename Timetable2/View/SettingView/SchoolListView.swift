@@ -13,9 +13,10 @@ struct SchoolListView: View {
     @Query(sort: [SortDescriptor(\School.name)], animation: .snappy)
     private var schools: [School]
     
-    @State private var isAdding = false
     @State private var newName = ""
     @State private var tempSchool: School = School()
+    
+    @State private var isAdding = false
     
     var body: some View {
         NavigationStack {
@@ -61,13 +62,6 @@ struct SchoolListView: View {
                             .frame(width: .infinity)
                         NavigationLink {
                             SchoolDetailView(school: $tempSchool)
-                                .toolbar {
-                                    ToolbarItem(placement: .confirmationAction) {
-                                        Button("Save") {
-                                            saveContext(tempSchool)
-                                        }.disabled(tempSchool.isVoid)
-                                    }
-                                }
                         } label: {
                             Button("Continue") {
                                 tempSchool = School(name: newName, schedule: [])

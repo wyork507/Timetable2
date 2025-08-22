@@ -8,7 +8,7 @@
 import SwiftUI
 
 fileprivate let previewData = Course(
-    timetable: .init(name: "114-1",
+    timetable: .init("114-1",
                      start: DateComponents(year: 2025, month: 9, day: 1).date!,
                      end: DateComponents(year: 2025, month: 12, day: 20).date!),
     name: "大學入門（師大小大師）",
