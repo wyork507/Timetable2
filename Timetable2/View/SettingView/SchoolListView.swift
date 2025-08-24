@@ -12,10 +12,7 @@ struct SchoolListView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: [SortDescriptor(\School.name)], animation: .snappy)
     private var schools: [School]
-    
-    @State private var newName = ""
-    @State private var tempSchool: School = School()
-    
+
     @State private var isAdding = false
     
     var body: some View {
@@ -30,7 +27,7 @@ struct SchoolListView: View {
                     Section {
                         ForEach(schools) { school in
                             NavigationLink {
-                                SchoolDetailView(school: Binding<School>(get: { school }, set: { _ in } ))
+                                SchoolDetailView(school: school, isPresented: .constant(true))
                             } label: {
                                 VStack(alignment: .leading) {
                                     Text(school.name)
@@ -55,57 +52,83 @@ struct SchoolListView: View {
             }
         }
         .sheet(isPresented: $isAdding) {
-            NavigationStack {
-                Form {
-                    Section("Add School") {
-                        TextField("Name", text: $newName, prompt: Text("Enter a name"))
-                            .frame(width: .infinity)
-                        NavigationLink {
-                            SchoolDetailView(school: $tempSchool)
-                        } label: {
-                            Button("Continue") {
-                                tempSchool = School(name: newName, schedule: [])
-                            }
-                        }.disabled(newName.isEmpty)
-                    }
-                    Section("Created by default") {
-                        defaultSchools(.NTNU)
-                        defaultSchools(.NTU)
-                        defaultSchools(.NTUST)
-                    }
+            AddNewSchoolView(isPresented: $isAdding)
+        }
+     }
+}
+
+fileprivate struct AddNewSchoolView: View {
+    @Environment(\.modelContext) private var context
+    @Binding var isPresented: Bool
+    
+    @State private var newName = ""
+    @State private var tempSchool: School? = nil
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("Add School") {
+                    TextField("Name", text: $newName, prompt: Text("Enter a name"))
+                    NavigationLink("Continue") {
+                        SchoolDetailView(
+                            school: tempSchool ?? School(name: newName, schedule: []),
+                            isPresented: $isPresented
+                        ).interactiveDismissDisabled(true)
+                    }.disabled(newName.isEmpty || isContain(newName))
                 }
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") {
-                            isAdding = false
-                            newName = ""
-                        }
+                Section("Creating by Defaults") {
+                    defaultSchools(.NTNU)
+                    defaultSchools(.NTU)
+                    defaultSchools(.NTUST)
+                }
+            }
+            .navigationTitle("Add School")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        isPresented = false
                     }
                 }
             }
         }
-     }
-    
-    private func saveContext(_ school: School) {
-        context.insert(school)
-        try? context.save()
-        newName = ""
-        isAdding = false
-        tempSchool = .init()
     }
     
     @ViewBuilder
     private func defaultSchools(_ defaultsSchools: DefaultSchools) -> some View {
         Button(defaultsSchools.rawValue) {
-            saveContext(School(defaultsSchools))
+            save(School(defaultsSchools))
         }
-        .disabled(schools.contains(where: { $0.name == defaultsSchools.rawValue }))
+        .disabled(isContain(defaultsSchools.rawValue))
         .buttonStyle(.plain)
+    }
+    
+    private func isContain(_ name: String) -> Bool {
+        if let result = try? context.fetchCount(
+            FetchDescriptor(predicate: #Predicate<School> {$0.name == name})
+        ) as Int? {
+            return result > 0
+        } else {
+            return false
+        }
+    }
+    
+    private func save(_ school: School?) {
+        guard let school: School = school else {
+            fatalError("Invalid school")
+        }
+        context.insert(school)
+        try? context.save()
+        isPresented = false
     }
 }
 
+#Preview("SchoolListView") {
+    NavigationStack {
+        SchoolListView()
+            .modelContainer(for: School.self, inMemory: true)
+    }
+}
 
-#Preview {
-    SchoolListView()
-        .modelContainer(for: School.self, inMemory: true)
+#Preview("AddNewSchoolView") {
+    AddNewSchoolView(isPresented: .constant(true))
 }

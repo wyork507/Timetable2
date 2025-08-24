@@ -19,8 +19,6 @@ class Timetables {
     @Relationship(deleteRule: .deny)
     var courses: [Course]
     
-    var isVoid: Bool
-    
     init(_ name: String, start: Date, end: Date) {
         self.createDate = Date()
         self.name = name
@@ -28,17 +26,6 @@ class Timetables {
         self.end = end
         self.holidays = []
         self.courses = []
-        self.isVoid = false
-    }
-    
-    init() {
-        self.createDate = Date()
-        self.name = "N/A"
-        self.start = Date()
-        self.end = Date()
-        self.holidays = []
-        self.courses = []
-        self.isVoid = true
     }
 }
 

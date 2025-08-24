@@ -14,13 +14,11 @@ class School: Identifiable {
     var name: String
     var schedule: [Period]
     var campuses: [String]
-    var isVoid: Bool
     
     init(name: String, schedule: [Period]) {
         self.name = name
         self.schedule = schedule
         self.campuses = []
-        self.isVoid = false
     }
     
     init(_ schoolName: DefaultSchools) {
@@ -36,14 +34,6 @@ class School: Identifiable {
                 return ["Main", "Huaxia"]
             }
         }()
-        self.isVoid = false
-    }
-    
-    init() {
-        self.name = "N/A"
-        self.schedule = []
-        self.campuses = []
-        self.isVoid = true
     }
 }
 

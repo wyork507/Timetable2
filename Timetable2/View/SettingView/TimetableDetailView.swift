@@ -10,7 +10,8 @@ import SwiftData
 
 struct TimetableDetailView: View {
     @Environment(\.modelContext) private var context
-    @Binding var timetable: Timetables
+    @Bindable var timetable: Timetables
+    @Binding var isPresented: Bool
     
     @State private var newName = ""
     @State private var newStart = Date()
@@ -132,8 +133,10 @@ struct TimetableDetailView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button("Save") {
+                    context.insert(timetable)
                     try? context.save()
-                }.disabled(timetable.isVoid)
+                    isPresented = false
+                }
             }
         }
     }
@@ -152,5 +155,5 @@ struct TimetableDetailView: View {
         start: Date(),
         end: Calendar.current.date(byAdding: DateComponents(month: 3), to: Date())!
     )
-    TimetableDetailView(timetable: $timetable)
+    TimetableDetailView(timetable: timetable, isPresented: .constant(true))
 }

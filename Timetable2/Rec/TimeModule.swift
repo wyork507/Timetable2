@@ -6,6 +6,8 @@
 //
 import Foundation
 
+
+
 enum Weekday: Int {
    
     case sunday = 0 , tuesday, wednesday, thursday, friday, saturday, monday

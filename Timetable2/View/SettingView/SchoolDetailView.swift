@@ -10,7 +10,8 @@ import SwiftData
 
 struct SchoolDetailView: View {
     @Environment(\.modelContext) private var context
-    @Binding var school: School
+    @Bindable var school: School
+    @Binding var isPresented: Bool
     
     @State private var newCampus = ""
     
@@ -45,7 +46,7 @@ struct SchoolDetailView: View {
                     }
                 }
                 Section("Schdule") {
-                    ForEach(Array(school.schedule.enumerated()), id: \.element.name) { index, period in
+                    ForEach(Array(school.schedule.sorted{ $0.start < $1.start }.enumerated()), id: \.element.name) { index, period in
                         LabeledContent {
                             VStack {
                                 Text(period.start.formatted(date: .omitted, time: .shortened))
@@ -104,7 +105,6 @@ struct SchoolDetailView: View {
                         Button("Save") {
                             let newPeriod = Period(name: newPeriodName, start: newStart, end: newEnd)
                             school.schedule.append(newPeriod)
-                            school.schedule.sort { $0.start < $1.start } //BUG, not apply to old data
                             resetNewPeriod()
                             showEditPeriod = false
                         }
@@ -116,8 +116,10 @@ struct SchoolDetailView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button("Save") {
+                    context.insert(school)
                     try? context.save()
-                }.disabled(school.isVoid)
+                    isPresented = false
+                }
             }
         }
     }
@@ -132,5 +134,7 @@ struct SchoolDetailView: View {
 
 #Preview {
     @Previewable @State var school = School(.NTNU)
-    SchoolDetailView(school: $school)
+    NavigationStack {
+        SchoolDetailView(school: school, isPresented: .constant(true))
+    }
 }
